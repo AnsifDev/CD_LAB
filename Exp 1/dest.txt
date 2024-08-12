@@ -39,11 +39,11 @@ sum => Identifier
 = => Operator
 ( => Paunctuator
 a => Identifier
-+ => Operator
+^ => Operator
 b => Identifier
 ) => Paunctuator
 % => Operator
-6.3 => NumericConstant [Float]
+6 => NumericConstant [Integer]
 ; => Paunctuator
 printf => Identifier
 ( => Paunctuator

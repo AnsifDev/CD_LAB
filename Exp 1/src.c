@@ -10,6 +10,6 @@ void main() {
     printf("Enter Number 2: ");
     scanf("%d", &b);
 
-    int sum = (a + b) % 6;
+    int sum = (a ^ b) % 6;
     printf("The sum is %d\n", sum);
 }
