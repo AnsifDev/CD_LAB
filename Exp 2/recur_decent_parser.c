@@ -14,40 +14,40 @@ bool td();
 bool f();
 
 bool e() {
+    printf("E\t->\tTE\'\n");
     if (!t()) return FALSE;
     if (!ed()) return FALSE;
 
-    printf("E\t->\tTE\'\n");
     return TRUE;
 }
 
 bool ed() {
     if (str[pointer] == '+' || str[pointer] == '-') {
-        char c = str[pointer++];
+        printf("E\'\t->\t%cTE\'\n", str[pointer]);
+        pointer++;
         if (!t()) return FALSE;
         if (!ed()) return FALSE;
 
-        printf("E\'\t->\t%cTE\'\n", c);
     } else printf("E\'\t->\te\n");
 
     return TRUE;
 }
 
 bool t() {
+    printf("T\t->\tFT\'\n");
     if (!f()) return FALSE;
     if (!td()) return FALSE;
 
-    printf("T\t->\tFT\'\n");
     return TRUE;
 }
 
 bool td() {
     if (str[pointer] == '*' || str[pointer] == '/') {
-        char c = str[pointer++];
+        printf("T\'\t->\t%cFT\'\n", str[pointer]);
+        pointer++;
         if (!f()) return FALSE;
         if (!td()) return FALSE;
 
-        printf("T\'\t->\t%cFT\'\n", c);
     } else printf("T\'\t->\te\n");
 
     return TRUE;
@@ -55,16 +55,15 @@ bool td() {
 
 bool f() {
     if (str[pointer] == '(') {
+        printf("F\t->\t(E)\n");
         pointer++;
         if (!e()) return FALSE;
         if (str[pointer] != ')') return FALSE;
         pointer++;
 
-        printf("F\t->\t(E)\n");
     } else if (str[pointer] == 'i') {
-        pointer++;
-
         printf("F\t->\ti\n");
+        pointer++;
     } else return FALSE;
 
     return TRUE;
