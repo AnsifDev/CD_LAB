@@ -78,14 +78,14 @@ int main() {
         int rule = reduce();
         if (rule > -1) printf("Reduced by %c -> %s\n", grammer[rule].left, grammer[rule].production);
         else {
-            if (pointer >= str_len) break;
+            if (str[pointer] == '$') break;
             printf("Shift %c\n", str[pointer]);
             stack[stack_top++] = str[pointer++];
             stack[stack_top] = '\0';
         }
     }
 
-    if (str[pointer] == '$' && strcmp(stack, "E") == 0) {
+    if (strcmp(stack, "E") == 0) {
         printf("Accepted\n");
         return 0;
     } else {
