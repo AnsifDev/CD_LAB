@@ -68,8 +68,12 @@ int main() {
             if (expr_def->unknowns == 0) {
                 strcpy(symbol_table[symbol_table_size].id, expr_def->result);
                 symbol_table[symbol_table_size].value = eval(temp1, temp2, opp[0]);
+
+                // expr_def->simple_type = true;
+                // sprintf(expr_def->op1, "%d", symbol_table[symbol_table_size].value);
+
                 symbol_table_size++;
-            } else expr_definision_table_size++;
+            }
         } else if (sscanf(expr, "%s", expr_def->op1) == 1) { // 1 operant without operation
             expr_def->simple_type = true;
             if (sscanf(expr_def->op1, "%d", &temp1) == 1) { //It is a digit
@@ -81,18 +85,21 @@ int main() {
                 if (index > -1) { // Value is directly available
                     strcpy(symbol_table[symbol_table_size].id, expr_def->result);
                     symbol_table[symbol_table_size].value = symbol_table[index].value;
+
+                    sprintf(expr_def->op1, "%d", symbol_table[symbol_table_size].value);
+
                     symbol_table_size++;
-                } else { // Unknown value
-                    expr_def->unknowns = 2;
-                    expr_definision_table_size++;
-                }
+                } else expr_def->unknowns = 1; // Unknown value
             }
         }
+
+        expr_definision_table_size++;
     }
 
     if (expr_definision_table_size > 0) for (int i = 0; i < expr_definision_table_size; i++) {
         ExprDefinision *expr_def = &expr_definision_table[i];
         if (expr_def->simple_type) printf("%s = %s\n", expr_def->result, expr_def->op1);
         else printf("%s = %s %c %s\n", expr_def->result, expr_def->op1, expr_def->opp, expr_def->op2);
-    } else printf("%s = %d\n", symbol_table[symbol_table_size-1].id, symbol_table[symbol_table_size-1].value);
+    } 
+    // else printf("%s = %d\n", symbol_table[symbol_table_size-1].id, symbol_table[symbol_table_size-1].value);
 }

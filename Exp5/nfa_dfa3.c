@@ -12,6 +12,14 @@ int index_of(int size, int array[size], int value) {
     return -1;
 }
 
+void extract_old_name(int id, int max, char* string) {
+    string[0] = '\0';
+    for (int i = 0; i < max; i++) {
+        if ((id & (1 << (max-1-i))) == 0) continue;
+        sprintf(string, "%sq%d", string, i);
+    }
+}
+
 int main() {
     int nfa_states_size = 0;
     printf("Enter number of states (> 0): ");
@@ -76,16 +84,26 @@ int main() {
         }
     }
 
+    printf("Info: Symbols of Transition Table are renamed as follows:\n");
+    for (int i = 0; i < dfa_discovered_states; i++)
+    {
+        char old_name[25];
+        extract_old_name(state_names[i], nfa_states_size, old_name);
+        printf("Q%d -> %s\n", i, old_name);
+    }
+    
+
+    printf("DFA Transition Table:\n");
     for (int i = 0; i < symbols_size; i++) printf("\t%c", 'a'+i);
     printf("\n");
 
     for (int state = 0; state < dfa_discovered_states; state++)
     {
         if ((state_names[state] & nfa_final_states) > 0) printf("*");
-        printf("q%d\t", state);
+        printf("Q%d\t", state);
         for (int symbol = 0; symbol < symbols_size; symbol++)
         {
-            printf("q%d\t", dfa[state][symbol]);
+            printf("Q%d\t", dfa[state][symbol]);
         }
         printf("\n");
     }
