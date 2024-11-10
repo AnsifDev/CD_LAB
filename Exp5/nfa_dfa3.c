@@ -84,7 +84,7 @@ int main() {
         }
     }
 
-    printf("Info: Symbols of Transition Table are renamed as follows:\n");
+    printf("\nInfo: Symbols of Transition Table are renamed as follows:\n");
     for (int i = 0; i < dfa_discovered_states; i++)
     {
         char old_name[25];
@@ -93,7 +93,7 @@ int main() {
     }
     
 
-    printf("DFA Transition Table:\n");
+    printf("\nDFA Transition Table:\n");
     for (int i = 0; i < symbols_size; i++) printf("\t%c", 'a'+i);
     printf("\n");
 

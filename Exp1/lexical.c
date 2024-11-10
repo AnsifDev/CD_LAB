@@ -84,7 +84,7 @@ void extract_leximes() {
 
         // Detect Operators
         fseek(src_file, current_pos, SEEK_SET);
-        rt = fscanf(src_file, " %[-+*/%.<>=!&|~^] ", token);
+        rt = fscanf(src_file, " %[-+*/%%.<>=!&|~^] ", token);
         if (rt == 1) {
             bool operator_found = FALSE;
             for (int i = 0; i < LOADABLE_OPERATORS_COUNT; i++) if (strcmp(token, operators[i]) == 0) {

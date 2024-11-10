@@ -1,55 +1,55 @@
-void => Keyword
-main => Identifier
-( => Paunctuator
-) => Paunctuator
-{ => Paunctuator
-int => Keyword
-a => Identifier
-, => Paunctuator
-b => Identifier
-; => Paunctuator
-printf => Identifier
-( => Paunctuator
-"Enter Number 1: " => Literal [String]
-) => Paunctuator
-; => Paunctuator
-scanf => Identifier
-( => Paunctuator
-"%d" => Literal [String]
-, => Paunctuator
-& => Operator
-a => Identifier
-) => Paunctuator
-; => Paunctuator
-printf => Identifier
-( => Paunctuator
-"Enter Number 2: " => Literal [String]
-) => Paunctuator
-; => Paunctuator
-scanf => Identifier
-( => Paunctuator
-"%d" => Literal [String]
-, => Paunctuator
-& => Operator
-b => Identifier
-) => Paunctuator
-; => Paunctuator
-int => Keyword
-sum => Identifier
-= => Operator
-( => Paunctuator
-a => Identifier
-^ => Operator
-b => Identifier
-) => Paunctuator
-% => Operator
-6 => NumericConstant [Integer]
-; => Paunctuator
-printf => Identifier
-( => Paunctuator
-"The sum is %d\n" => Literal [String]
-, => Paunctuator
-sum => Identifier
-) => Paunctuator
-; => Paunctuator
-} => Paunctuator
+void		->	Keywords
+main		->	Identifiers
+(		->	Punctuators
+)		->	Punctuators
+{		->	Punctuators
+int		->	Keywords
+a		->	Identifiers
+,		->	Punctuators
+b		->	Numeric Constants
+;		->	Punctuators
+printf		->	Identifiers
+(		->	Punctuators
+"Enter Number 1: "	->	String Constants
+)		->	Punctuators
+;		->	Punctuators
+scanf		->	Identifiers
+(		->	Punctuators
+"%d"	->	String Constants
+,		->	Punctuators
+&		->	Operators
+a		->	Identifiers
+)		->	Punctuators
+;		->	Punctuators
+printf		->	Identifiers
+(		->	Punctuators
+"Enter Number 2: "	->	String Constants
+)		->	Punctuators
+;		->	Punctuators
+scanf		->	Identifiers
+(		->	Punctuators
+"%d"	->	String Constants
+,		->	Punctuators
+&		->	Operators
+b		->	Numeric Constants
+)		->	Punctuators
+;		->	Punctuators
+int		->	Keywords
+sum		->	Identifiers
+=		->	Operators
+(		->	Punctuators
+a		->	Identifiers
+^		->	Operators
+b		->	Numeric Constants
+)		->	Punctuators
+%		->	Operators
+6		->	Numeric Constants
+;		->	Punctuators
+printf		->	Identifiers
+(		->	Punctuators
+"The sum is %d\n"	->	String Constants
+,		->	Punctuators
+sum		->	Identifiers
+)		->	Punctuators
+;		->	Punctuators
+}		->	Punctuators
